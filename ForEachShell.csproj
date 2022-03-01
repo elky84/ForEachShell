@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	<PackageId>ForEachShell</PackageId>
+	<Authors>elky</Authors>
+	<Company>elky</Company>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+
+	<PackAsTool>true</PackAsTool>
+	<ToolCommandName>foreachshell</ToolCommandName>
+
+	<Version>1.0.0</Version>
+
+	<PackageDescription>ForEach action Shell command</PackageDescription>
+	<RepositoryUrl>https://github.com/elky84/ForEachShell</RepositoryUrl>
+
+	<PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <None Include="LICENSE" Pack="true" PackagePath="\"/>
+	  <None Include="README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="CommandLineParser" Version="2.9.0-preview1" />
+  </ItemGroup>
+
+</Project>
