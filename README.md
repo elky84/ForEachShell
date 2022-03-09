@@ -36,3 +36,9 @@ require dotnet 6 (LTS) or later (<https://dotnet.microsoft.com/en-us/download>)
 
 * Strings containing spaces must be enclosed in double quotation (") marks.
 * If a - (hyphen) is required, it must be preceded by a \ (slash).
+
+## version history
+
+### v1.0.1
+
+Supports OS other than Windows.

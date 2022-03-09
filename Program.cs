@@ -6,11 +6,6 @@ using ForEachShell;
 {
     try
     {
-        for (int i = 0; i < args.Length; i++)
-        {
-            Console.WriteLine(String.Format("{0}: ({1})", i, args[i]));
-        }
-
         Parser.Default.ParseArguments<Options>(args)
             .WithParsed<Options>(opts => Run.Execute(opts))
             .WithNotParsed<Options>((errs) => Options.HandleParseError(errs));

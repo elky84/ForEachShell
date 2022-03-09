@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace ForEachShell
 {
@@ -8,12 +9,21 @@ namespace ForEachShell
         {
             foreach (var directory in Directory.GetDirectories(opts.Input))
             {
-                Directory.SetCurrentDirectory(directory);
                 using (Process process = new())
                 {
-                    process.StartInfo.WorkingDirectory = directory;
-                    process.StartInfo.FileName = "cmd.exe";
-                    process.StartInfo.Arguments = $"/c {opts.Command} {opts.Argument.Replace("\\", "")}";
+                    process.StartInfo.WorkingDirectory = $"{opts.Input}/{directory}";
+
+                    if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                    {
+                        process.StartInfo.FileName = "cmd.exe";
+                        process.StartInfo.Arguments = $"/c {opts.Command} {opts.Argument.Replace("\\", "")}";
+                    }
+                    else
+                    {
+                        process.StartInfo.FileName = opts.Command;
+                        process.StartInfo.Arguments = opts.Argument.Replace("\\", "");
+                    }
+
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.RedirectStandardOutput = true;
                     process.Start();
