@@ -2,8 +2,8 @@
 
 namespace ForEachShell
 {
-
-    public partial class Options
+    // ReSharper disable once ClassNeverInstantiated.Global
+    public class Options
     {
         [Option('i', "input", Required = true, HelpText = "Input directory.")]
         public string Input { get; set; } = "";
